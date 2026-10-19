@@ -13,13 +13,13 @@
 // STEP 1: Select DOM Elements
 // ===================================
 // TODO: Select the theme toggle button (id: 'themeToggle')
-const themeToggleBtn = null;
+const themeToggleBtn = document.querySelector('#themeToggle');
 
 // TODO: Select the theme icon element (id: 'themeIcon')
-const themeIcon = null;
+const themeIcon = document.querySelector('#themeIcon');
 
 // TODO: Get the <body> element
-const body = null;
+const body = document.body;
 
 
 // ===================================
@@ -29,6 +29,7 @@ const body = null;
 // The event listener should call the toggleDarkMode function
 // Your code here:
 
+themeToggleBtn.addEventListener('click', toggleDarkMode);
 
 // ===================================
 // STEP 3: Toggle Dark Mode Function
@@ -37,9 +38,14 @@ function toggleDarkMode() {
     // TODO 1: Toggle the 'dark-mode' class on the body element
     // Your code here:
 
+    document.body.classList.toggle('dark-mode');
+
+    const isDarkModeNow = body.classList.contains('dark-mode')
+
     // TODO 2: Update the icon based on the current mode
     // Your code here:
-    
+    updateIcon(isDarkModeNow);
+
     // Optional: Save the current mode to localStorage
     // This is optional - try it after completing the basic functionality!
     // Your code here (optional):
@@ -56,6 +62,11 @@ function updateIcon(isDarkMode) {
     // If light mode: show moon icon 🌙
     // Your code here:
 
+    if (isDarkMode) {
+        themeIcon.textContent = '☀️';
+    } else {
+        themeIcon.textContent = '🌙';
+    }
 }
 
 
